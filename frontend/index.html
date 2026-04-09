@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowCraft | Transform Your Look Today</title>
+    <meta name="description"
+        content="GlowCraft offers professional haircuts, facials, and spa services with a touch of elegance and care.">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        premium: {
+                            pink: '#fbcfe8',
+                            beige: '#fcf6f0',
+                            rose: '#fb7185',
+                            dark: '#374151'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .pink-gradient {
+            background: linear-gradient(135deg, #fbcfe8 0%, #fce4ec 100%);
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .fade-out {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+
+        .floating-btn {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-premium-beige text-premium-dark overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-pink-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-serif font-bold text-premium-rose tracking-wider">
+                <a href="#home">GLOWCRAFT</a>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#home" class="hover:text-premium-rose transition duration-300">Home</a>
+                <a href="#services" class="hover:text-premium-rose transition duration-300">Services</a>
+                <a href="#about" class="hover:text-premium-rose transition duration-300">About</a>
+                <a href="#contact" class="hover:text-premium-rose transition duration-300">Contact</a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-premium-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="absolute top-0 left-0 w-full bg-white z-[-1] md:hidden shadow-lg border-b border-pink-100 pt-20 pb-6 px-6">
+            <div class="flex flex-col space-y-4 text-center font-medium">
+                <a href="#home" class="mobile-link py-2 border-b border-pink-50">Home</a>
+                <a href="#services" class="mobile-link py-2 border-b border-pink-50">Services</a>
+                <a href="#about" class="mobile-link py-2 border-b border-pink-50">About</a>
+                <a href="#contact" class="mobile-link py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center pt-16">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80"
+                alt="Luxury Salon Interior" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <h1
+                class="text-5xl md:text-7xl font-serif font-bold mb-6 text-premium-dark leading-tight animate-fade-in text-shadow">
+                Transform Your <span class="text-premium-rose">Look</span> Today
+            </h1>
+            <p class="text-lg md:text-xl font-light mb-8 text-premium-dark/80 max-w-2xl mx-auto">
+                Professional salon services tailored to your unique beauty. Experience the blend of luxury and
+                convenience.
+            </p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="#contact"
+                    class="px-10 py-4 bg-premium-rose text-white rounded-full font-medium hover:bg-rose-500 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Book Appointment
+                </a>
+                <a href="#services"
+                    class="px-10 py-4 border-2 border-premium-rose text-premium-rose rounded-full font-medium hover:bg-premium-rose hover:text-white transition-all duration-300">
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">Exquisite Services</h2>
+                <div class="w-20 h-1 bg-premium-rose mx-auto"></div>
+                <p class="mt-4 text-premium-dark/60">Crafted with care to make you feel your best.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-6" id="accordion-container">
+                <!-- Hair Services Card -->
+                <div class="category-accordion border border-pink-50 rounded-3xl overflow-hidden shadow-sm bg-premium-beige transition-all duration-300" id="hairCategory" data-category="hair">
+                    <button class="accordion-header w-full text-left flex items-center justify-between p-6 md:p-8 focus:outline-none group">
+                        <div class="flex items-center gap-4 md:gap-6">
+                            <div class="w-16 h-16 md:w-24 md:h-24 rounded-2xl overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=400&q=80" alt="Hair Services" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            </div>
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-bold font-serif mb-1 md:mb-2 text-premium-dark group-hover:text-premium-rose transition-colors">Hair Services</h3>
+                                <p class="text-sm text-premium-dark/70 hidden sm:block">Precision cuts, styling, and coloring.</p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300 accordion-icon">
+                            <svg class="w-6 h-6 text-premium-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </button>
+                    <div id="hairServicesList" class="service-details hidden overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 bg-white/50">
+                        <div class="p-6 md:p-8 pt-0 border-t border-pink-100">
+                            <ul class="space-y-4 pt-6">
+                                <li class="flex justify-between items-center pb-4 border-b border-pink-50/50 hover:pl-2 transition-all duration-300">
+                                    <div>
+                                        <h4 class="font-bold text-lg text-premium-dark">Haircut</h4>
+                                        <p class="text-sm text-premium-dark/60 mt-1">Expert styling and precision cutting</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 ml-4">
+                                        <span class="text-premium-rose font-bold text-lg whitespace-nowrap">₹499</span>
+                                        <button data-service="haircut" class="book-service-btn px-4 py-2 bg-premium-rose/10 text-premium-rose rounded-full text-sm font-semibold hover:bg-premium-rose hover:text-white transition-colors whitespace-nowrap">Book Now</button>
+                                    </div>
+                                </li>
+                                <li class="flex justify-between items-center pb-4 border-b border-pink-50/50 hover:pl-2 transition-all duration-300">
+                                    <div>
+                                        <h4 class="font-bold text-lg text-premium-dark">Hair Coloring</h4>
+                                        <p class="text-sm text-premium-dark/60 mt-1">Vibrant tones and highlights</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 ml-4">
+                                        <span class="text-premium-rose font-bold text-lg whitespace-nowrap">₹1999</span>
+                                        <button data-service="coloring" class="book-service-btn px-4 py-2 bg-premium-rose/10 text-premium-rose rounded-full text-sm font-semibold hover:bg-premium-rose hover:text-white transition-colors whitespace-nowrap">Book Now</button>
+                                    </div>
+                                </li>
+                                <li class="flex justify-between items-center hover:pl-2 transition-all duration-300">
+                                    <div>
+                                        <h4 class="font-bold text-lg text-premium-dark">Hair Styling</h4>
+                                        <p class="text-sm text-premium-dark/60 mt-1">Elegant styles for any occasion</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 ml-4">
+                                        <span class="text-premium-rose font-bold text-lg whitespace-nowrap">₹799</span>
+                                        <button data-service="styling" class="book-service-btn px-4 py-2 bg-premium-rose/10 text-premium-rose rounded-full text-sm font-semibold hover:bg-premium-rose hover:text-white transition-colors whitespace-nowrap">Book Now</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skin Services Card -->
+                <div class="category-accordion border border-pink-50 rounded-3xl overflow-hidden shadow-sm bg-premium-beige transition-all duration-300" id="skinCategory" data-category="skin">
+                    <button class="accordion-header w-full text-left flex items-center justify-between p-6 md:p-8 focus:outline-none group">
+                        <div class="flex items-center gap-4 md:gap-6">
+                            <div class="w-16 h-16 md:w-24 md:h-24 rounded-2xl overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=400&q=80" alt="Skin Services" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            </div>
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-bold font-serif mb-1 md:mb-2 text-premium-dark group-hover:text-premium-rose transition-colors">Skin Services</h3>
+                                <p class="text-sm text-premium-dark/70 hidden sm:block">Facials and cleansing treatments.</p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300 accordion-icon">
+                            <svg class="w-6 h-6 text-premium-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </button>
+                    <div id="skinServicesList" class="service-details hidden overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 bg-white/50">
+                        <div class="p-6 md:p-8 pt-0 border-t border-pink-100">
+                            <ul class="space-y-4 pt-6">
+                                <li class="flex justify-between items-center pb-4 border-b border-pink-50/50 hover:pl-2 transition-all duration-300">
+                                    <div>
+                                        <h4 class="font-bold text-lg text-premium-dark">Facial</h4>
+                                        <p class="text-sm text-premium-dark/60 mt-1">Deep hydration and natural glow</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 ml-4">
+                                        <span class="text-premium-rose font-bold text-lg whitespace-nowrap">₹899</span>
+                                        <button data-service="facial" class="book-service-btn px-4 py-2 bg-premium-rose/10 text-premium-rose rounded-full text-sm font-semibold hover:bg-premium-rose hover:text-white transition-colors whitespace-nowrap">Book Now</button>
+                                    </div>
+                                </li>
+                                <li class="flex justify-between items-center hover:pl-2 transition-all duration-300">
+                                    <div>
+                                        <h4 class="font-bold text-lg text-premium-dark">Cleanup</h4>
+                                        <p class="text-sm text-premium-dark/60 mt-1">Gentle exfoliation and pore cleansing</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 ml-4">
+                                        <span class="text-premium-rose font-bold text-lg whitespace-nowrap">₹699</span>
+                                        <button data-service="cleanup" class="book-service-btn px-4 py-2 bg-premium-rose/10 text-premium-rose rounded-full text-sm font-semibold hover:bg-premium-rose hover:text-white transition-colors whitespace-nowrap">Book Now</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spa Services Card -->
+                <div class="category-accordion border border-pink-50 rounded-3xl overflow-hidden shadow-sm bg-premium-beige transition-all duration-300" id="spaCategory" data-category="spa">
+                    <button class="accordion-header w-full text-left flex items-center justify-between p-6 md:p-8 focus:outline-none group">
+                        <div class="flex items-center gap-4 md:gap-6">
+                            <div class="w-16 h-16 md:w-24 md:h-24 rounded-2xl overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=400&q=80" alt="Spa Services" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            </div>
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-bold font-serif mb-1 md:mb-2 text-premium-dark group-hover:text-premium-rose transition-colors">Spa Services</h3>
+                                <p class="text-sm text-premium-dark/70 hidden sm:block">Relaxing full body therapies.</p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300 accordion-icon">
+                            <svg class="w-6 h-6 text-premium-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </button>
+                    <div id="spaServicesList" class="service-details hidden overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 bg-white/50">
+                        <div class="p-6 md:p-8 pt-0 border-t border-pink-100">
+                            <ul class="space-y-4 pt-6">
+                                <li class="flex justify-between items-center pb-4 border-b border-pink-50/50 hover:pl-2 transition-all duration-300">
+                                    <div>
+                                        <h4 class="font-bold text-lg text-premium-dark">Full Body Spa</h4>
+                                        <p class="text-sm text-premium-dark/60 mt-1">Therapeutic massage for ultimate relaxation</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 ml-4">
+                                        <span class="text-premium-rose font-bold text-lg whitespace-nowrap">₹1499</span>
+                                        <button data-service="full-body-spa" class="book-service-btn px-4 py-2 bg-premium-rose/10 text-premium-rose rounded-full text-sm font-semibold hover:bg-premium-rose hover:text-white transition-colors whitespace-nowrap">Book Now</button>
+                                    </div>
+                                </li>
+                                <li class="flex justify-between items-center hover:pl-2 transition-all duration-300">
+                                    <div>
+                                        <h4 class="font-bold text-lg text-premium-dark">Head Massage</h4>
+                                        <p class="text-sm text-premium-dark/60 mt-1">Stress relief and deep relaxation</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 ml-4">
+                                        <span class="text-premium-rose font-bold text-lg whitespace-nowrap">₹499</span>
+                                        <button data-service="head-massage" class="book-service-btn px-4 py-2 bg-premium-rose/10 text-premium-rose rounded-full text-sm font-semibold hover:bg-premium-rose hover:text-white transition-colors whitespace-nowrap">Book Now</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-premium-beige">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
+                    alt="About GlowCraft" class="rounded-3xl shadow-xl">
+            </div>
+            <div class="w-full md:w-1/2">
+                <span class="text-premium-rose font-bold tracking-widest text-sm uppercase mb-4 inline-block">Since
+                    2018</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">Redefining Beauty Elegance</h2>
+                <p class="text-premium-dark/80 mb-6 leading-relaxed">
+                    At GlowCraft, we believe beauty is more than skin deep. Our team of expert stylists and therapists
+                    are dedicated to providing an unparalleled experience that nourishes both your body and soul.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-pink-100 p-2 rounded-full text-premium-rose shrink-0">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Expert Stylists</h4>
+                            <p class="text-sm text-premium-dark/60">Years of experience in high-end fashion and beauty.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-pink-100 p-2 rounded-full text-premium-rose shrink-0">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Premium Products</h4>
+                            <p class="text-sm text-premium-dark/60">Only organic and high-quality brands used for your
+                                care.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">Book Your Session</h2>
+                <div class="w-20 h-1 bg-premium-rose mx-auto mb-6"></div>
+                <p class="text-premium-dark/60">Fill out the form below and we'll get back to you shortly.</p>
+            </div>
+
+            <form id="appointment-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="name">Full Name *</label>
+                        <input type="text" id="name" required
+                            class="w-full px-4 py-3 bg-premium-beige border border-pink-50 rounded-xl focus:outline-none focus:ring-2 focus:ring-premium-rose/20 transition"
+                            placeholder="Jane Doe">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="email">Email Address *</label>
+                        <input type="email" id="email" required
+                            class="w-full px-4 py-3 bg-premium-beige border border-pink-50 rounded-xl focus:outline-none focus:ring-2 focus:ring-premium-rose/20 transition"
+                            placeholder="jane@example.com">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2" for="service">Select Service *</label>
+                    <select id="service" required class="w-full px-4 py-3 bg-premium-beige border border-pink-50 rounded-xl focus:outline-none focus:ring-2 focus:ring-premium-rose/20 transition">
+                        <option value="">Choose a service...</option>
+                        <optgroup label="Hair">
+                            <option value="haircut">Signature Haircut</option>
+                            <option value="coloring">Hair Coloring</option>
+                            <option value="styling">Hair Styling</option>
+                        </optgroup>
+                        <optgroup label="Skin">
+                            <option value="facial">Glow Facial</option>
+                            <option value="cleanup">Cleanup</option>
+                        </optgroup>
+                        <optgroup label="Spa">
+                            <option value="full-body-spa">Full Body Spa</option>
+                            <option value="head-massage">Head Massage</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2" for="message">Message (Optional)</label>
+                    <textarea id="message" rows="4"
+                        class="w-full px-4 py-3 bg-premium-beige border border-pink-50 rounded-xl focus:outline-none focus:ring-2 focus:ring-premium-rose/20 transition"
+                        placeholder="Any special requests?"></textarea>
+                </div>
+                <button type="submit" id="submit-btn"
+                    class="w-full py-4 bg-premium-rose text-white rounded-xl font-bold hover:bg-rose-500 transition-all duration-300 shadow-md">
+                    Submit Request
+                </button>
+                <div id="form-status" class="hidden text-center p-4 rounded-xl font-medium mt-4"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-premium-dark text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-1">
+                <h3
+                    class="text-2xl font-serif font-bold text-premium-pink mb-6 tracking-wider underline decoration-premium-rose decoration-2 underline-offset-8">
+                    GLOWCRAFT</h3>
+                <p class="text-white/60 text-sm leading-relaxed">
+                    Elegance is the only beauty that never fades. Join us for a unique rejuvenation experience.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-sm text-white/60">
+                    <li><a href="#home" class="hover:text-premium-pink transition">Home</a></li>
+                    <li><a href="#services" class="hover:text-premium-pink transition">Services</a></li>
+                    <li><a href="#about" class="hover:text-premium-pink transition">About</a></li>
+                    <li><a href="#contact" class="hover:text-premium-pink transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Contact Us</h4>
+                <ul class="space-y-3 text-sm text-white/60">
+                    <li class="flex items-center gap-3">
+                        <svg class="w-4 h-4 text-premium-pink shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        7-31, Visakhapatnam, Gopalpatnam
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-4 h-4 text-premium-pink shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        998926299
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-4 h-4 text-premium-pink shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        shyam@gmail.com
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-10 border-t border-white/10 text-center text-sm text-white/40">
+            <p>&copy; 2026 GlowCraft. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Buttons -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-50 items-end">
+        <!-- WhatsApp Button (Always Visible) -->
+        <a href="https://wa.me/919908926299" target="_blank"
+            class="floating-btn w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-[#128C7E] transition duration-300 group relative">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span class="absolute right-16 bg-black/80 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">
+                Chat on WhatsApp
+            </span>
+        </a>
+
+        <!-- Call Button (Always Visible) -->
+        <a id="floating-phone-btn" href="javascript:void(0)"
+            class="floating-btn w-14 h-14 bg-premium-rose text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-rose-500 transition duration-300 group relative">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                </path>
+            </svg>
+            <span class="absolute right-16 bg-black/80 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">
+                Call Us
+            </span>
+        </a>
+    </div>
+
+    <!-- Supabase SDK via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- EmailJS SDK via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
